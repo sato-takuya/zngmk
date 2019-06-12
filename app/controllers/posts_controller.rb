@@ -68,7 +68,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :picture)
+    params.require(:post).permit(:content, :picture,:user_id)
   end
 
   #画像生成メソッド
