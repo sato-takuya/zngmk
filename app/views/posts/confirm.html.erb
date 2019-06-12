@@ -6,7 +6,7 @@
 
 <h2>Step 3</h2>
 <!-- Twitter投稿へのリンク。「url」以下がTwitter本文に記載されるURL、「hashtags」以下がハッシュタグ -->
-<a href="https://twitter.com/share?url=https://zngmk.herokuapp.com/posts/<%= @post.id %>&hashtags=懺悔メーカー" target="_blank" class="square_btn" data-show-count="false">Twitter投稿へ</a>
+<a href="https://twitter.com/share?url=https://zngmk.herokuapp.com/posts/<%= @post.public_uid %>/element&hashtags=懺悔メーカー" target="_blank" class="square_btn" data-show-count="false">Twitter投稿へ</a>
 <div>
   <%= link_to "画像編集へ戻る", edit_post_path(@post) %>
 </div>

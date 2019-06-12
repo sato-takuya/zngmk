@@ -47,19 +47,23 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    #@post = Post.find_by(public_uid: params[:id])
-    #@post.destroy
-    #redirect_to root_path,notice: '投稿を削除しました'
+    @post = Post.find_by(public_uid: params[:id])
+    @post.destroy
+    redirect_to root_path,notice: '投稿を削除しました'
   end
 
   #confirmアクションを追加
   def confirm
   end
 
+  def element
+    @post = Post.find_by(public_uid: params[:id])
+  end
+
   #編集の場合、@postインスタンス作成
   private
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.find_by(public_uid: params[:id])
   end
 
   #新規作成の場合、@postインスタンス作成
