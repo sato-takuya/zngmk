@@ -1,0 +1,13 @@
+indexページ
+<%if user_signed_in? %>
+<%=current_user.email%>
+
+<%=current_user.name%>
+<%=current_user.nickname%>
+<%=current_user.image%>
+<%=current_user.location%>
+
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%else%>
+  <%= link_to "ログイン", new_user_session_path %>
+<%end%>
