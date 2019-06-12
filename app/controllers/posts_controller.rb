@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def create
     #@postに入力したcontentが入っている。（id、pictureはまだ入っていない）
     @post = Post.new(post_params)
+    binding.pry
     # ⑤-2 idとして採番予定の数字を作成（現在作成しているidの次、存在しない場合は1を採番）
     if Post.last.present?
       next_id = Post.last.id + 1
