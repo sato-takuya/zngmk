@@ -154,7 +154,6 @@ class PostsController < ApplicationController
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/zangemaker-development' + "/" + png_path
-        binding.pry
     end
   end
 end
