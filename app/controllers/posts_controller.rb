@@ -80,7 +80,7 @@ class PostsController < ApplicationController
 
 
   def imagesecure
-    SecureRandom.base64(12)
+    SecureRandom.hex(13)
   end
 
   #画像生成メソッド
