@@ -1,13 +1,2 @@
-indexページ
-<%if user_signed_in? %>
-<%=current_user.email%>
-
-<%=current_user.name%>
-<%=current_user.nickname%>
-<%=current_user.image%>
-<%=current_user.location%>
-
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%else%>
-  <%= link_to "ログイン", new_user_session_path %>
-<%end%>
+  <p>ここに説明が入ります</p>
+  <%= link_to " Twitterでログイン/登録", user_twitter_omniauth_authorize_path,class: "btn btn-primary my-4 py-2 fa fa-twitter" %>
