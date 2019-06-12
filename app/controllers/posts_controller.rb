@@ -28,9 +28,9 @@ class PostsController < ApplicationController
       next_id = 1
     end
     # ⑤-3 画像の生成メソッド呼び出し（画像のファイル名にidを使うため、引数として渡す）
-    make_picture(next_id)
     @post.user_id = current_user.id
     @post.image_secure = imagesecure()
+    make_picture(@post.image_secure)
 
     if @post.save
       # ⑤-4 確認画面へリダイレクト
@@ -154,6 +154,7 @@ class PostsController < ApplicationController
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/zangemaker-development' + "/" + png_path
+        binding.pry
     end
   end
 end
