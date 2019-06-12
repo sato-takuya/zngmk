@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  require 'securerandom'
+
   #set_post、new_postを事前に行う
   before_action :authenticate_user!,except:[:element]
   before_action :set_post, only: [:confirm, :edit, :update]
@@ -19,7 +21,6 @@ class PostsController < ApplicationController
   def create
     #@postに入力したcontentが入っている。（id、pictureはまだ入っていない）
     @post = Post.new(post_params)
-    binding.pry
     # ⑤-2 idとして採番予定の数字を作成（現在作成しているidの次、存在しない場合は1を採番）
     if Post.last.present?
       next_id = Post.last.id + 1
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
     # ⑤-3 画像の生成メソッド呼び出し（画像のファイル名にidを使うため、引数として渡す）
     make_picture(next_id)
     @post.user_id = current_user.id
+    @post.image_secure = imagesecure()
 
     if @post.save
       # ⑤-4 確認画面へリダイレクト
@@ -40,7 +42,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      make_picture(@post.id)
+      make_picture(@post.image_secure)
       redirect_to confirm_path(@post)
     else
       render :edit
@@ -76,8 +78,13 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, :picture,:user_id)
   end
 
+
+  def imagesecure
+    SecureRandom.base64(12)
+  end
+
   #画像生成メソッド
-  def make_picture(id)
+  def make_picture(secure)
     sentense = ""
     #改行を消去
     content = @post.content.gsub(/\r\n|\r|\n/," ")
@@ -137,13 +144,13 @@ class PostsController < ApplicationController
         # ⑨-14 バケットの指定・URLの設定
         bucket = storage.directories.get('zangemaker-production')
         # ⑨-15 保存するディレクトリ、ファイル名の指定（ファイル名は投稿id.pngとしています）
-        png_path = 'images/' + id.to_s + '.png'
+        png_path = 'images/' + secure.to_s + '.png'
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/zangemaker-production' + "/" + png_path
       when 'development'
         bucket = storage.directories.get('zangemaker-development')
-        png_path = 'images/' + id.to_s + '.png'
+        png_path = 'images/' + secure.to_s + '.png'
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/zangemaker-development' + "/" + png_path
