@@ -41,9 +41,11 @@
 </div>
     <div class="col-md-3"></div>
     <footer>
-    <%= link_to 'about', "#" %> |
     <%= link_to 'プライバシーポリシー', "#" %> |
     <%= link_to '利用規約', "#" %>
+    <% if user_signed_in? %>
+    | <%= link_to "アカウント削除","/users/#{current_user}", method: :delete, data: { confirm: '本当にアカウントを削除しますか？' } %>
+    <%end%>
     </footer>
   </body>
 </html>

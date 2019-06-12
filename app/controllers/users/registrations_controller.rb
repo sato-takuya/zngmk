@@ -25,9 +25,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+   def destroy
+    result = resource.destroy
+    if result
+      Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+      set_flash_message :notice, :destroyed
+      yield resource if block_given?
+      respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
+    else
+      # パスワード認証に失敗したときの処理を書く
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
