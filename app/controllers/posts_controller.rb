@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   #set_post、new_postを事前に行う
-  before_action :authenticate_user!
+  before_action :authenticate_user!,except:[:element]
   before_action :set_post, only: [:confirm, :edit, :update]
   before_action :new_post, only: [:show, :new]
 

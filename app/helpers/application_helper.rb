@@ -13,9 +13,9 @@ module ApplicationHelper
       twitter_card[:url] = 'https://zngmk.herokuapp.com/'
       twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/zangemaker-production/images/logo.png"
     end
-    twitter_card[:title] = "画像下に表示されるタイトル"
+    twitter_card[:title] = "懺悔メーカー"
     twitter_card[:card] = 'summary_large_image'
-    twitter_card[:description] = '画像下に表示される説明文'
+    twitter_card[:description] = "#{post.content}"
     twitter_card
   end
 end
