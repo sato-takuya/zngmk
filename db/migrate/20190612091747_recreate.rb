@@ -1,11 +1,11 @@
 
 class Recreate < ActiveRecord::Migration[5.2]
   def change
-    add_column :users,:name, null: false
-    add_column :users,:uid
-    add_column :users,:provider
-    add_column :users,:nickname
-    add_column :users,:location
-    add_column :users,:image
+    add_column :users,:name,:string ,null: false
+    add_column :users,:uid,:string
+    add_column :users,:provider,:string
+    add_column :users,:nickname,:string
+    add_column :users,:location,:string
+    add_column :users,:image,:string
   end
 end
