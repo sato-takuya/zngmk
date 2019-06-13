@@ -13,6 +13,5 @@ module ApplicationHelper
     twitter_card[:title] = "懺悔メーカー"
     twitter_card[:card] = 'summary_large_image'
     twitter_card
-    binding.pry
   end
 end
