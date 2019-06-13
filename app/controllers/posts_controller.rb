@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   end
 
   def share
-    redirect_to root_path
+    render :element
   end
 
   #編集の場合、@postインスタンス作成
