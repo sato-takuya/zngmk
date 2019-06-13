@@ -3,10 +3,10 @@ module ApplicationHelper
     twitter_card = {}
     if post.present?
       if post.to_element == true
-      twitter_card[:url] = "https://zngmk.herokuapp.com/posts/#{post.public_uid}"
-      twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/zangemaker-production/images/#{post.image_secure}.png"
-      twitter_card[:description] = "#{post.content}"
-      post.to_element = false
+        twitter_card[:url] = "https://zngmk.herokuapp.com/posts/#{post.public_uid}"
+        twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/zangemaker-production/images/#{post.image_secure}.png"
+        twitter_card[:description] = "#{post.content}"
+        post.to_element = false
       else
         twitter_card[:url] = 'https://zngmk.herokuapp.com/'
         twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/zangemaker-production/images/red.jpg"
@@ -20,5 +20,6 @@ module ApplicationHelper
     twitter_card[:title] = "懺悔メーカー"
     twitter_card[:card] = 'summary_large_image'
     twitter_card
+    binding.pry
   end
 end

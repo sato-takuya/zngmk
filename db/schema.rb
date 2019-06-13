@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_112402) do
+ActiveRecord::Schema.define(version: 2019_06_12_130452) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2019_06_13_112402) do
     t.string "user_id"
     t.string "public_uid"
     t.string "image_secure"
-    t.boolean "to_element", default: true, null: false
     t.index ["public_uid"], name: "index_posts_on_public_uid", unique: true
   end
 
