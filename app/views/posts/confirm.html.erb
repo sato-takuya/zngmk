@@ -1,15 +1,15 @@
-<h2>生成された画像の確認</h2>
 <div>
   <!-- 生成した画像の確認用の画像の表示 -->
-  <%= image_tag @post.picture, width: '315' %>
+  <%= image_tag @post.picture, width: '315',class: 'image_confirm' %>
 </div>
 
-<h2>Step 3</h2>
-<!-- Twitter投稿へのリンク。「url」以下がTwitter本文に記載されるURL、「hashtags」以下がハッシュタグ -->
-<a href="https://twitter.com/share?url=https://zngmk.herokuapp.com/posts/<%= @post.public_uid %>/element&hashtags=懺悔メーカー" target="_blank" class="square_btn" data-show-count="false">Twitter投稿へ</a>
+<!-- Twitter投稿へのリンク -->
+<a href="https://twitter.com/share?url=https://zngmk.herokuapp.com/posts/<%= @post.public_uid %>/element&text=懺悔メーカーで罪を告白しました&hashtags=懺悔メーカー" target="_blank" class="btn btn-primary btn-lg" data-show-count="false">タイムラインにシェアする</a>
+
 <div>
-  <%= link_to "画像編集へ戻る", edit_post_path(@post) %>
+  <br>
+  <br><%= link_to "編集する", edit_post_path(@post) %>
 </div>
 <div>
-  <%= link_to "トップページへ", root_path %>
+  <%= link_to "トップページへ戻る", root_path %>
 </div>
