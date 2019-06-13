@@ -8,7 +8,7 @@ module ApplicationHelper
     else
       twitter_card[:url] = 'https://zngmk.herokuapp.com/'
       twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/zangemaker-production/images/logo.png"
-      twitter_card[:description] = "懺悔メーカーとは、日々の懺悔をツイートできるサービスです"
+      twitter_card[:description] = "日々の懺悔を画像付きでツイートできるサービスです"
     end
     twitter_card[:title] = "懺悔メーカー"
     twitter_card[:card] = 'summary_large_image'

@@ -63,6 +63,10 @@ class PostsController < ApplicationController
     @post = Post.find_by(public_uid: params[:id])
   end
 
+  def share
+    render :element
+  end
+
   #編集の場合、@postインスタンス作成
   private
   def set_post
