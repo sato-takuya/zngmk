@@ -66,7 +66,7 @@ class PostsController < ApplicationController
   def share
     #@post = Post.find_by(public_uid: params[:id])
      #render :element
-     root_path
+     redirect_to root_path
   end
 
   #編集の場合、@postインスタンス作成
