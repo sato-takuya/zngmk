@@ -8,9 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico' %>
+    <%= analytics_init if Rails.env.production? %>
     <meta name="viewport" content="width=device-width">
 
-    <%= analytics_init if Rails.env.production? %>
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap&subset=japanese" rel="stylesheet">
 
