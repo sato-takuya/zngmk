@@ -2,26 +2,25 @@
 <img src= <%= current_user.image %> class="icon"><br>
 <span><%= current_user.name %>の懺悔</span><br>
 
-<%= link_to "罪を告白する",new_post_url,class: "btn btn-info btn-lg my-3 px-5 py-2" %>
+<br><%= link_to "罪を告白する",new_post_url,class: "btn btn-info btn-lg my-3 px-5 py-2 confession" %>
 
 <div class="container-fluid text-center">
 <div class="row">
-<div class="col-md-4"></div>
+<div class="col-md-3"></div>
 
-<div class='past-content col-md-4'>
+<div class='past-content col-md-6'>
 
-<p>過去の懺悔一覧</p>
+<span>過去の懺悔一覧</span>
 <% @posts.each do |post| %>
-<%= link_to(element_url(post), class: 'list-content') do %>
-  <%= image_tag post.picture, width: '315',class: 'image_past' %>
-  <br><%= link_to '削除', post_path(post), method: :delete, data: { confirm: '削除しますか？' }   %>
-<% end %>
+<div class='list-content'>
+  <%= image_tag post.picture, width: '200',class: 'image_past' %>
+  <span><%= link_to '投稿を削除',post_path(post),method: :delete,data:{confirm: '削除しますか？'},class: 'delete-confirm text-muted' %></span>
+</div>
 <% end %>
 
 </div>
 
-
-<div class="col-md-4"></div>
+<div class="col-md-3"></div>
 </div>
 </div>
 

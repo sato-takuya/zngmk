@@ -18,10 +18,17 @@
 
 body{
   text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-.container{
-  margin-bottom:40px;
+.wrapper{
+  margin-top:10px;
+}
+footer{
+  margin-bottom:20px;
+  text-align: center;
+  margin-top:60px;
+  width: 100%;
 }
 
 .icon{
@@ -44,12 +51,11 @@ body{
     -ms-transform: translateY(4px);
     -webkit-transform: translateY(4px);
     transform: translateY(4px);
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
     border-bottom: none;
 }
 
 .form-control{
-  width:260px;
+  width:350px;
   margin:0 auto;
 }
 .past-content{
@@ -64,19 +70,22 @@ a, a:visited, a:focus, a:hover {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .image_confirm{
   border:1px solid rgb(158, 158, 158);
   margin-bottom: 30px;
 }
 .image_past{
-  margin-top: 30px;
-  border:1px solid rgb(158, 158, 158);
+  margin-top: 20px;
 }
 
 .element-box{
   margin:0 auto;
   max-width:600px;
-  height:350px;
+  height:550px;
 }
 .content-text{
   display: inline-block;
@@ -90,4 +99,49 @@ a, a:visited, a:focus, a:hover {
 
 .logo{
   width:300px;
+}
+
+.twitterlogin{
+  animation: twitterlogin1 3s ease infinite;
+}
+.btnparmit{
+  animation: btnparmit1 3s ease infinite;
+}
+
+@keyframes twitterlogin1 {
+  0% { transform:translateY(0) }
+  5% { transform:translateY(0) }
+  10% { transform:translateY(0) }
+  20% { transform:translateY(-5px) }
+  25% { transform:translateY(0) }
+  30% { transform:translateY(-5px) }
+  50% { transform:translateY(0) }
+  100% { transform:translateY(0) }
+}
+
+@keyframes btnparmit1 {
+  0% { transform:translateY(0) }
+  5% { transform:translateY(0) }
+  10% { transform:translateY(0) }
+  20% { transform:translateY(-5px) }
+  25% { transform:translateY(0) }
+  30% { transform:translateY(-5px) }
+  50% { transform:translateY(0) }
+  100% { transform:translateY(0) }
+}
+
+.list-content{
+  display:inline-block;
+  border:1px solid rgb(216, 216, 216);
+  height:140px;
+  width:315px;
+  margin:10px 10px 10px 10px;
+}
+.delete-confirm{
+  font-size:12px;
+}
+
+.intro-image{
+  margin-top:20px;
+  margin-bottom:40px;
 }

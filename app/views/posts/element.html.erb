@@ -5,8 +5,13 @@
     <br><%= image_tag @post.picture, width: '315',class: 'image_confirm' %>
   </div>
   <br>
-  <a href="https://twitter.com/share?url=https://zngmk.herokuapp.com/posts/<%= @post.public_uid %>/share&text=@<%= @post.user.nickname %>さんの罪を許し、徳を積みました&hashtags=懺悔メーカー" target="_blank" class="btn btn-warning btn-lg" data-show-count="false"><%= @post.user.name %>さんの罪を許す</a>
+  <a href="https://twitter.com/share?url=https://zngmk.herokuapp.com/posts/<%= @post.public_uid %>/share&text=@<%= @post.user.nickname %>さんの罪を許し、徳を積みました&hashtags=懺悔メーカー" target="_blank" class="btn btn-warning btn-lg btnparmit" data-show-count="false"><%= @post.user.name %>さんの罪を許す</a>
+
+<br><br><span>罪を許すボタンを押すと、ツイッターシェア画面に飛びます</span>
 
   <br>
-  <br><%= link_to '罪を告白する', root_path %>
+  <br>
+  <br>
+  <%= link_to '罪を告白してみる(Twitterログイン画面へ)', root_path %>
+  <br>
 </div>

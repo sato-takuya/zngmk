@@ -13,10 +13,10 @@
   <div class="form-group">
     <p>懺悔したいこと(50文字以内)</p>
 
-    <%= form.text_area :content, class:'form-control', rows:"3" %>
+    <%= form.text_area :content, class:'form-control', rows:"4",placeholder: "(例)起床に失敗し、二度寝してしまいました" %>
   </div>
 
   <div class="actions">
-    <%= form.submit "画像を確認する", id: 'submit', class:"confirm_btn" %>
+    <br><%= form.submit "画像を確認する", id: 'submit', class:"confirm_btn" %>
   </div>
 <% end %>
